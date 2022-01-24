@@ -6,12 +6,16 @@
   </div>
 </div>
 
-<h1>LISTAS</h1>
+<div class="my-3 mx-5">
+  <h1>My Lists</h1>
 
-<ul>
-  <% @lists.each do |list| %>
-    <li>
-      <%= link_to list.name, list_path(list) %>
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://bohmtheatre.org/wp-content/uploads/2015/09/film-banner.jpg)">
+        <h3><%= link_to list.name, list_path(list) %></h3>
+        <p><%= list.movies.count %></p>
+      </div>
+
       <%# <%= link_to "Delete",
         task_path(task),
         method: :delete,
@@ -19,9 +23,10 @@
           confirm: "Are u sure? Delete #{task.title}?"
         }
       %>
-    </li>
-  <% end %>
-</ul>
 
+      <% end %>
+  </div>
+
+</div>
 
 <%= link_to "Add a new list", new_list_path %>
